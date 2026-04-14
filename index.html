@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Naseem | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#0b0b16;
+  color:white;
+  font-family:Poppins;
+  overflow:hidden;
+  position:relative;
+  animation:fadeIn 1.2s ease;
+}
+
+
+@keyframes floatText{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-8px);
+  }
+}
+
+
+/* canvas background */
+#bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+.spotlight{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+
+  background: radial-gradient(
+    circle 120px at 50% 50%,
+    transparent 0%,
+    rgba(0,0,0,0.95) 100%
+  );
+
+  opacity:1;              /* ensure default visible */
+  transition: opacity 0.4s ease;
+}
+
+.spotlight.hide{
+  opacity:0;              /* fade out only */
+}
+
+.spotlight{
+  z-index:1;   /* 🔥 behind content */
+}
+
+
+/* glow */
+.glow{
+  position:absolute;
+  width:250px;
+  height:250px;
+  background:radial-gradient(circle, rgba(0,234,255,0.4), transparent 60%);
+  pointer-events:none;
+  filter:blur(60px);
+  transform:translate(-50%, -50%);
+  z-index:1;
+}
+
+/* content */
+.intro{
+  text-align:center;
+  z-index:2;
+  transition:0.2s;
+}
+
+.intro{
+  text-align:center;
+  position:relative;
+  z-index:5;
+}
+
+.intro h1{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.8rem;        /* balanced size */
+  letter-spacing: 3px;
+  margin-bottom:10px;
+
+  background: linear-gradient(90deg,#ffffff,#b8dfff);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  transition: transform 0.3s ease;
+}
+
+.intro h1:hover{
+  transform: scale(1.08) translateY(-3px);   /* 🔥 clean pop only */
+}
+
+
+
+/* ✅ paragraph parallax movement */
+.intro p{
+  color:#aaa;
+  margin-bottom:20px;
+
+  --x: 0px;
+  --y: 0px;
+
+  animation: floatText 4s ease-in-out infinite;
+}
+
+/* combine both movements */
+@keyframes floatText{
+  0%,100%{
+    transform: translate(var(--x), var(--y));
+  }
+  50%{
+    transform: translate(var(--x), calc(var(--y) - 8px));
+  }
+}
+
+
+
+/* button */
+.enter-btn{
+  padding:14px 35px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#6C63FF,#00eaff);
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+
+  box-shadow:0 0 10px rgba(0,234,255,0.3);
+}
+
+.enter-btn:hover{
+  transform:scale(1.1) translateY(-2px);
+
+  box-shadow:
+    0 0 20px #00eaff,
+    0 0 40px #6C63FF;
+}
+
+.enter-btn{
+  margin-top: 10px;
+}
+
+
+
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0b0b16;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+
+  opacity:0;
+  transition:0.5s;
+}
+
+.loader.show{
+  opacity:1;
+}
+
+/* text */
+#loadingText{
+  margin-bottom:20px;
+  color:#00eaff;
+}
+
+/* progress bar */
+.progress-bar{
+  width:250px;
+  height:6px;
+  background:rgba(255,255,255,0.1);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#progressFill{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#6C63FF,#00eaff);
+  transition:width 0.2s;
+}
+
+.hidden{
+  display:none;
+}
+
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0b0b16;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+
+  opacity:0;
+  pointer-events:none;
+  transition:0.5s;
+}
+
+.loader.show{
+  opacity:1;
+  pointer-events:all;
+}
+
+
+
+/* animation */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+
+.profile-pic{
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+
+
+.profile-pic{
+  display:block;
+  margin:0 auto 30px auto;
+
+  width:320px;
+  height:auto;
+
+  border-radius:20px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.8),
+    0 0 40px rgba(108,99,255,0.4);
+
+  transition:0.4s ease;
+}
+
+.profile-pic:hover{
+  transform:scale(1.05) translateY(-5px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.9),
+    0 0 60px rgba(0,234,255,0.6);
+}
+
+
+
+
+/* container */
+.image-container{
+  position:relative;
+  width:320px;
+  margin:0 auto 30px;
+}
+
+/* image */
+.profile-pic{
+  width:100%;
+  display:block;
+  border-radius:20px;
+}
+
+/* overlay ONLY on image */
+.image-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+  z-index:2;
+
+  background: radial-gradient(
+    circle 120px at 50% 50%,
+    transparent 0%,
+    rgba(0,0,0,0.9) 100%
+  );
+}
+
+
+
+
+</style>
+</head>
+
+
+
+
+
+
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+
+<canvas id="bg"></canvas>
+<div class="glow" id="glow"></div>
+
+<div class="intro" id="intro">
+
+  <h1>MUHAMMED NASEEM PP</h1>
+  <p>Developer • Designer • Editor</p>
+
+  <a href="#" class="enter-btn" onclick="enterSite(event)">Enter Portfolio</a>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="clickSound" preload="auto">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LOADER -->
+<div id="loader" class="loader hidden">
+  <h2 id="loadingText">Loading 0%</h2>
+
+  <div class="progress-bar">
+    <div id="progressFill"></div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+
+let spotlightSize = 120;
+let targetSize = 120;
+
+let spotlightColor = "rgba(0,0,0,0.95)";
+let targetColor = "rgba(0,0,0,0.95)";
+
+
+
+
+const glow = document.getElementById("glow");
+const intro = document.getElementById("intro");
+
+/* mouse movement */
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+
+  let x = (e.clientX - window.innerWidth/2) / 25;
+  let y = (e.clientY - window.innerHeight/2) / 25;
+
+  intro.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+/* PARTICLES */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let mouse = {x:0, y:0};
+
+document.addEventListener("mousemove", (e)=>{
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    dx:(Math.random()-0.5)*0.5,
+    dy:(Math.random()-0.5)*0.5
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p=>{
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+    let dx = p.x - mouse.x;
+    let dy = p.y - mouse.y;
+    let dist = Math.sqrt(dx*dx + dy*dy);
+
+    if(dist < 120){
+      p.x += dx * 0.02;
+      p.y += dy * 0.02;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,2,0,Math.PI*2);
+    ctx.fillStyle="#6C63FF";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+
+
+/* ✅ spotlight JS */
+const spotlight = document.getElementById("spotlight");
+const btn = document.querySelector(".enter-btn");
+
+// hover IN
+btn.addEventListener("mouseenter", () => {
+  targetSize = 200;
+  targetColor = "rgba(140, 100, 255, 0.75)";
+
+  spotlight.style.opacity = "0";   // 🔥 hide spotlight
+});
+
+// hover OUT
+btn.addEventListener("mouseleave", () => {
+  targetSize = 120;
+  targetColor = "rgba(0,0,0,0.95)";
+
+  spotlight.style.opacity = "1";   // 🔥 bring back spotlight
+});
+
+
+
+
+
+/* ✅ Parallax movement */
+
+const text = document.querySelector(".intro p");
+
+document.addEventListener("mousemove", (e) => {
+
+  let x = (e.clientX - window.innerWidth/2) / 40;
+  let y = (e.clientY - window.innerHeight/2) / 40;
+
+  text.style.setProperty("--x", x + "px");
+  text.style.setProperty("--y", y + "px");
+});
+
+
+
+
+/* ✅ FIXED FUNCTION */
+function enterSite(e){
+  e.preventDefault();
+
+  const sound = document.getElementById("clickSound");
+  const loader = document.getElementById("loader");
+  const text = document.getElementById("loadingText");
+  const bar = document.getElementById("progressFill");
+
+  // play sound
+  sound.currentTime = 0;
+  sound.play().catch(err => console.log("Sound issue:", err));
+
+  // show loader
+  loader.classList.remove("hidden");
+  loader.classList.add("show");
+
+  let progress = 0;
+
+  let interval = setInterval(() => {
+    progress += Math.floor(Math.random()*10) + 5; // smooth jump
+
+    if(progress > 100) progress = 100;
+
+    text.innerText = "Loading " + progress + "%";
+    bar.style.width = progress + "%";
+
+    if(progress === 100){
+      clearInterval(interval);
+
+      // small delay then redirect
+      setTimeout(()=>{
+        window.location.href = "main.html";
+      },500);
+    }
+
+  },150);
+
+
+
+}</script>
+
+</body>
+</html>

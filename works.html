@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Works | Naseem</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  background:#0b0b16;
+  color:white;
+  font-family:Poppins;
+  padding:40px;
+}
+
+/* Main title */
+h1{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+/* Section titles */
+.section-title{
+  margin:30px 0 15px;
+  font-size:1.5rem;
+  color:#6C63FF;
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+
+/* grid alignment */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* always 3 in a row */
+  gap:20px;
+}
+
+.grid img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* common video style */
+video {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+/* landscape videos */
+.landscape {
+  height: 180px;
+}
+
+/* portrait videos (taller) */
+.portrait {
+  height: 360px;
+  grid-row: span 2;
+}
+
+/* hover */
+video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(108,99,255,0.5);
+}
+
+
+/* Media */
+video, img{
+  width:100%;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+/* Hover */
+video:hover, img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(108,99,255,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<h1>My Works</h1>
+
+</div>
+
+<!-- 🖼️ IMAGES SECTION -->
+<h2 class="section-title">🖼️ Project Photos</h2>
+
+<!-- 🚌 BUS TRACKING -->
+<h3 class="section-title">Bus Tracking System</h3>
+<div class="grid">
+  <img src="image1.jpg">
+  <img src="image2.jpg">
+  <img src="image3.jpg">
+</div>
+
+<!-- 🌦 WEATHER APP -->
+<h3 class="section-title">Weather Mood App</h3>
+<div class="grid">
+  <img src="project2.png">
+</div>
+
+<!-- 🩺 IOT PROJECT -->
+<h3 class="section-title">IoT Patient Health Monitoring System</h3>
+<div class="grid">
+  <img src="IoT1.png">
+  <img src="IoT2.png">
+  <img src="iot-project2.png">
+</div>
+
+</body>
+</html>
