@@ -8,18 +8,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
+
+
+
+@media (max-width: 768px){
+
+  body{
+    padding:20px;
+    height:auto;
+  }
+
+  .intro h1{
+    font-size:2.2rem;
+    letter-spacing:1px;
+  }
+
+  .intro p{
+    font-size:0.9rem;
+  }
+
+  .enter-btn{
+    padding:10px 20px;
+    font-size:0.9rem;
+  }
+
+  .profile-pic,
+  .image-container{
+    width:90%;
+  }
+
+}
+
+
+
 body{
   margin:0;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   background:#0b0b16;
   color:white;
   font-family:Poppins;
-  overflow:hidden;
+  overflow-x:hidden;   /* only horizontal hidden */
   position:relative;
-  animation:fadeIn 1.2s ease;
 }
 
 
@@ -108,6 +140,22 @@ body{
 
   transition: transform 0.3s ease;
 }
+@media (max-width:768px){
+  .intro h1{
+    font-size:2.2rem;
+    letter-spacing:1px;
+  }
+
+  .intro p{
+    font-size:0.9rem;
+  }
+
+  .enter-btn{
+    padding:10px 20px;
+    font-size:0.9rem;
+  }
+}
+
 
 .intro h1:hover{
   transform: scale(1.08) translateY(-3px);   /* 🔥 clean pop only */

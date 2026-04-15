@@ -28,6 +28,7 @@ body{
 }
 
 
+
 /* Canvas background */
 #bg{
   position:fixed;
@@ -51,14 +52,6 @@ header {
   transition: 0.3s ease;
   z-index: 1000;
 }
-
-/* SCROLL EFFECT */
-header.scrolled {
-  background: rgba(10, 10, 20, 0.8);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
 nav a {
   margin: 0 12px;
   color: #aaa;
@@ -75,6 +68,31 @@ nav a.active::after {
   width: 100%;
 }
 
+
+
+/* 🔥 MOBILE NAVBAR FIX */
+@media (max-width:768px){
+
+  header{
+    flex-direction: column;   /* stack logo + nav */
+    align-items: center;
+    padding: 10px;
+  }
+
+  nav{
+    display: flex;
+    flex-wrap: wrap;         /* allow wrapping */
+    justify-content: center;
+  }
+
+  nav a{
+    margin: 5px 8px;
+    font-size: 0.85rem;
+  }
+
+}
+
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -85,6 +103,17 @@ nav a.active::after {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+
+/* SCROLL EFFECT */
+header.scrolled {
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+
 
 
 /* hover underline animation */
@@ -122,6 +151,7 @@ section + section {
 .hero{text-align:center}
 .hero img{
   width:200px;
+  max-width:80%;
   border-radius:50%;
   margin-top:20px;
   border:3px solid var(--accent);
@@ -136,6 +166,11 @@ section + section {
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
   color:transparent;
+}
+
+img{
+  max-width:100%;
+  height:auto;
 }
 
 
@@ -726,12 +761,6 @@ h2{
   padding: 70px 40px;
 }
 
-/* grid */
-.footer-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
 
 /* item */
 .footer-item{
@@ -973,7 +1002,24 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
   opacity:0.9;
 }
 
+@media (max-width:768px){
 
+  section{
+    padding:20px 15px;
+  }
+
+  .hero{
+    padding-top:120px;
+  }
+
+}
+
+
+@media (max-width:768px){
+  header h2{
+    font-size:1rem;
+  }
+}
 
 
 
@@ -994,9 +1040,9 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#certificates">Certificates</a>
-<a href="#certificates">Works</a>
-<a href="#certificates">Resume</a>
-<a href="#contact">Contact</a>
+<a href="#works">Works</a>
+<a href="#resume">Resume</a>
+<a href="#contacts">Contact</a>
 </nav>
 </header>
 
@@ -1007,7 +1053,7 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
 
 <img src="photo.webp">
 
-
+</section> 
 
 <section id="about">
   <div class="about-box">
@@ -1131,14 +1177,14 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
 </section>
 
 
-
+<section id="works">
 <div class="works-btn">
   <a href="works.html" class="glow-btn">View My Works</a>
 </div>
+</section>
 
 
-
-<section class="resume-section">
+<section id="resume" class="resume-section">
 
   <div class="resume-heading">
     <h2 class="gradient">Download Resume</h2>
@@ -1203,6 +1249,8 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
   </div>
 
   <!-- 🔥 CONTACT DETAILS PART -->
+
+<section id="contacts">
   <div class="footer-contact">
 
     <div class="contact-card">
@@ -1228,8 +1276,8 @@ background: linear-gradient(to right, #0b0b16, #1a1f3a);
         github.com/mhd-naseem8129
       </a>
     </div>
-
   </div>
+</section>
 
 </section>
 

@@ -12,7 +12,22 @@ body{
   background:#0b0b16;
   color:white;
   font-family:Poppins;
-  padding:40px;
+  padding:25px;
+}
+
+/* 📱 mobile fix */
+@media (max-width:768px){
+  body{
+    padding:15px;
+  }
+
+  h1{
+    font-size:1.6rem;
+  }
+
+  .section-title{
+    font-size:1.2rem;
+  }
 }
 
 /* Main title */
@@ -28,26 +43,16 @@ h1{
   color:#6C63FF;
 }
 
+h3.section-title{
+  margin-top:25px;
+}
+
 /* Grid */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
-}
-
-
-/* grid alignment */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  align-items: start;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr); /* always 3 in a row */
-  gap:20px;
+  align-items:start;
 }
 
 .grid img{
@@ -95,14 +100,19 @@ video:hover, img:hover{
   transform:scale(1.05);
   box-shadow:0 0 20px rgba(108,99,255,0.5);
 }
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+
 </style>
 </head>
 
 <body>
 
 <h1>My Works</h1>
-
-</div>
 
 <!-- 🖼️ IMAGES SECTION -->
 <h2 class="section-title">🖼️ Project Photos</h2>

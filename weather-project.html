@@ -12,12 +12,37 @@ body{
   background:#0b0b16;
   color:white;
   font-family:Poppins;
-  padding:40px;
+  padding:25px;
+}
+
+/* 📱 mobile fix */
+@media (max-width:768px){
+  body{
+    padding:15px;
+  }
 }
 
 .container{
   max-width:900px;
   margin:auto;
+}
+
+
+@media (max-width:768px){
+
+  h1{
+    font-size:1.6rem;
+  }
+
+  h2{
+    font-size:1.2rem;
+  }
+
+  p, li{
+    font-size:0.9rem;
+    line-height:1.5;
+  }
+
 }
 
 h1{
@@ -39,6 +64,12 @@ img{
   margin:20px 0;
 }
 
+img{
+  max-width:100%;
+  height:auto;
+}
+
+
 .section{
   margin-top:30px;
 }
@@ -58,6 +89,14 @@ img{
   transform:scale(1.05);
   box-shadow:0 0 20px rgba(108,99,255,0.6);
 }
+@media (max-width:768px){
+  .btn{
+    display:block;
+    text-align:center;
+  }
+}
+
+
 </style>
 </head>
 
